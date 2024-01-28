@@ -1,6 +1,10 @@
 ### Start whisper.cpp and stuff?
 
-### APP
+### Dependencies
+sudo apt update && sudo apt upgrade
+sudo apt install pipx
+pipx ensurepath
+pipx install poetry
 
 open app/index.html
 # ^ This should be to run it in fullscreen / kiosk mode
@@ -8,6 +12,5 @@ open app/index.html
 ### CORE
 
 cd core/
-pip install poetry
 poetry install
 poetry run bash start.sh
