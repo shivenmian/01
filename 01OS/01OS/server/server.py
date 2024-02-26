@@ -72,12 +72,15 @@ if os.getenv('CODE_RUNNER') == "device":
             
             # Stream the response
             logger.info("Waiting for the device to respond...")
-            while True:
-                chunk = from_computer.get()
-                logger.info(f"Server received from device: {chunk}")
-                if "end" in chunk:
-                    break
-                yield chunk
+            try:
+                while True:
+                    chunk = from_computer.get()
+                    logger.info(f"Server received from device: {chunk}")
+                    if "end" in chunk:
+                        break
+                    yield chunk
+            except Exception as e:
+                raise e
 
         def stop(self):
             self.halt = True

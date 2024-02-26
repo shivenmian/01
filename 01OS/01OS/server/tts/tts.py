@@ -61,11 +61,14 @@ def stream_tts(text):
             os.remove(outfile)
 
     # Stream the audio
-    yield {"role": "assistant", "type": "audio", "format": file_type, "start": True}
-    for i in range(0, len(audio_bytes), chunk_size):
-        chunk = audio_bytes[i:i+chunk_size]
-        yield chunk
-    yield {"role": "assistant", "type": "audio", "format": file_type, "end": True}
+    try:
+        yield {"role": "assistant", "type": "audio", "format": file_type, "start": True}
+        for i in range(0, len(audio_bytes), chunk_size):
+                chunk = audio_bytes[i:i+chunk_size]
+                yield chunk
+        yield {"role": "assistant", "type": "audio", "format": file_type, "end": True}
+    except Exception as e:
+        raise e
 
 def play_audiosegment(audio):
     """

@@ -58,6 +58,8 @@ def export_audio_to_wav_ffmpeg(audio: bytearray, mime_type: str) -> str:
 
     try:
         yield output_path
+    except Exception as e:
+        raise e
     finally:
         os.remove(input_path)
         os.remove(output_path)

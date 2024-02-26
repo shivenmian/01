@@ -11,7 +11,7 @@ license = "AGPL"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.12"
+python = ">=3.10,<3.12"
 asyncio = "^3.4.3"
 pyaudio = "^0.2.14"
 pynput = "^1.7.6"
@@ -25,8 +25,9 @@ pydub = "^0.25.1"
 ngrok = "^1.0.0"
 simpleaudio = "^1.0.4"
 opencv-python = "^4.9.0.80"
-open-interpreter = {version = "0.2.1rc1", extras = ["os"]}
+open-interpreter = {version = "0.2.0", extras = ["os"]}
 psutil = "^5.9.8"
+pydantic = "2.4.2"
 
 [build-system]
 requires = ["poetry-core"]
